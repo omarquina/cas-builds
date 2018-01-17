@@ -35,7 +35,8 @@ echo "LISTANDO `pwd` : `ls`"
 pushd cas_master_vecino_digital/Vecino_Digital
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
-mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
+#mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
+mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ROOT.war
 popd
 ls
 echo "Terminando con Vecino Digital"
