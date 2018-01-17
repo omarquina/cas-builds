@@ -19,9 +19,9 @@ rm -rf $DEPLOY_DIR/
 pushd . &> /dev/null
 pushd cas_consumes_json/ConsumesJSON
 ls
-mvn package -DskipTests -s $HOME/.m2/settings.xml
+#mvn package -DskipTests -s $HOME/.m2/settings.xml
 find -name *.war*
 mv `find -name *.war*` $DEPLOY_DIR/
 echo "LISTANDO DEPLOY_DIR"
-ls $DEPLOY_DIR/*
+ls $DEPLOY_DIR/..
 
