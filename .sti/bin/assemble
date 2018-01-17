@@ -8,5 +8,5 @@ echo "Iniciando Custom assemble"
 echo "Listando Directorio actual: `pwd`: `ls .`"
 echo "Voy a clonar cas_consumes_json"
 git clone http://git.cautivatech.com/gomix/cas_consumes_json.git
-echo "Listando luego de clonar `ls ./*`"
+echo "Listando luego de clonar `ls .`"
 
