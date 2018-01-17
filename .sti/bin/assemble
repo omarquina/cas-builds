@@ -21,7 +21,7 @@ pushd . &> /dev/null
 pushd cas_consumes_json/ConsumesJSON
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
-cp ConsumesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/
+mv ConsumesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ConsumesJSON.war
 echo "LISTANDO DEPLOY_DIR"
 ls $DEPLOY_DIR/
 echo "--------"
@@ -35,7 +35,7 @@ echo "LISTANDO `pwd` : `ls`"
 pushd cas_master_vecino_digital/Vecino_Digital
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
-mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/
+mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
 popd
 ls
 echo "Terminando con Vecino Digital"
@@ -44,4 +44,4 @@ echo "Terminando con Vecino Digital"
 echo "Copiando todos los war a webapps"
 # find -name *.war*
 # mv `find -name *.war*` $DEPLOY_DIR/
-
+ls $DEPLOY_DIR
