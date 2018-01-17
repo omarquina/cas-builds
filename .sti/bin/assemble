@@ -41,8 +41,41 @@ popd
 ls
 echo "Terminando con Vecino Digital"
 
+echo "---------------------------------------------------"
+echo "---------------------------------------------------"
+echo "INICIANDO CON LocationServer"
 
-echo "Copiando todos los war a webapps"
+pwd
+git clone http://git.cautivatech.com/gomix/cas_location_server.git
+echo "LISTANDO `pwd` : `ls`"
+pushd cas_location_server/LocationServer
+ls
+mvn package -DskipTests -s $HOME/.m2/settings.xml
+#mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
+mv target/LocationServer-0.0.1-SNAPSHOT.war $DEPLOY_DIR/LocationServer.war
+popd
+ls
+
+echo "---------------------------------------------------"
+echo "---------------------------------------------------"
+echo "INICIANDO CON ServicesJSON"
+
+pwd
+git clone http://git.cautivatech.com/gomix/cas_services_json.git
+echo "LISTANDO `pwd` : `ls`"
+pushd cas_services_json/ServicesJSON
+ls
+mvn package -DskipTests -s $HOME/.m2/settings.xml
+#mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
+mv target/ServicesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ServicesJSON.war
+popd
+ls
+
+
+
+
+echo "---------------------------------------------------"
+echo "Listando todos los war a webapps"
 # find -name *.war*
 # mv `find -name *.war*` $DEPLOY_DIR/
 ls $DEPLOY_DIR
