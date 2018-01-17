@@ -25,4 +25,12 @@ find -name *.war*
 mv `find -name *.war*` $DEPLOY_DIR/
 echo "LISTANDO DEPLOY_DIR"
 ls $DEPLOY_DIR/
+echo "--------"
+
+echo "CLONANDO VECINO_DIGITAL"
+
+popd
+pwd
+git clone http://git.cautivatech.com/gomix/cas_master_vecino_digital.git
+ls 
 
