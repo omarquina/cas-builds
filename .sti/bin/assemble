@@ -5,11 +5,19 @@
 # para ser agregados a Tomcat
 echo "Iniciando Custom assemble"
 
+DEPLOY_DIR=$CATALINA_HOME/webapps
 echo "Listando Directorio actual: `pwd`"
 echo "`ls`"
 echo "Voy a clonar cas_consumes_json"
 git clone http://git.cautivatech.com/gomix/cas_consumes_json.git
-echo "Listando luego de clonar `ls .`"
+#echo "Listando luego de clonar `ls .`"
 echo "--"
 ls *
+pushd . &> /dev/null
+pushd cas_consumes_json/ConsumesJSON
+ls
+mvn package -DskipTests -s $HOME/.m2/settings.
+cp `find name *.war*` $DEPLOY_DIR
+echo "LISTANDO DEPLOY_DIR"
+ls $DEPLOY_DIR/../*
 
