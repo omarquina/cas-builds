@@ -16,7 +16,7 @@ git clone http://git.cautivatech.com/gomix/cas_consumes_json.git
 echo "--"
 ls *
 # clean webapps
-rm -rf $DEPLOY_DIR/
+rm -rf $DEPLOY_DIR/*
 pushd . &> /dev/null
 pushd cas_consumes_json/ConsumesJSON
 ls
