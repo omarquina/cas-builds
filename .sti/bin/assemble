@@ -21,7 +21,7 @@ pushd . &> /dev/null
 pushd cas_consumes_json/ConsumesJSON
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
-mv ConsumesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ConsumesJSON.war
+mv target/ConsumesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ConsumesJSON.war
 echo "LISTANDO DEPLOY_DIR"
 ls $DEPLOY_DIR/
 echo "--------"
