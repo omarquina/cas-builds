@@ -5,7 +5,9 @@
 # para ser agregados a Tomcat
 echo "Iniciando Custom assemble"
 
+echo "CATALINA: ${CATALINA_HOME}"
 DEPLOY_DIR=$CATALINA_HOME/webapps
+
 echo "Listando Directorio actual: `pwd`"
 echo "`ls`"
 echo "Voy a clonar cas_consumes_json"
@@ -15,7 +17,6 @@ echo "--"
 ls *
 # clean webapps
 rm -rf $DEPLOY_DIR/
-
 pushd . &> /dev/null
 pushd cas_consumes_json/ConsumesJSON
 ls
