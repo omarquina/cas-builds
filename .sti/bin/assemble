@@ -21,7 +21,7 @@ pushd cas_consumes_json/ConsumesJSON
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 find -name *.war*
-cp `find -name *.war*` $DEPLOY_DIR/
+mv `find -name *.war*` $DEPLOY_DIR/
 echo "LISTANDO DEPLOY_DIR"
 ls $DEPLOY_DIR/*
 
