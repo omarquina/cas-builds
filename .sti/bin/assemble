@@ -19,5 +19,5 @@ ls
 mvn package -DskipTests -s $HOME/.m2/settings.
 cp `find name *.war*` $DEPLOY_DIR
 echo "LISTANDO DEPLOY_DIR"
-ls $DEPLOY_DIR/../*
+ls $DEPLOY_DIR
 
