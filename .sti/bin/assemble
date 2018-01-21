@@ -48,7 +48,7 @@ pushd $CONSUMES_JSON_DIR_NAME/$CONSUMES_JSON_PROJECT_NAME
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 #mv target/ConsumesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ConsumesJSON.war
-mv $TARGET$CONSUMES_JSON_PROJECT_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/CONSUMES_JSON_PROJECT_NAME.war
+mv $TARGET$CONSUMES_JSON_PROJECT_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/$CONSUMES_JSON_PROJECT_NAME.war
 echo "LISTANDO DEPLOY_DIR"
 #ls $DEPLOY_DIR/
 echo "--------"
@@ -58,14 +58,14 @@ echo "CLONANDO VECINO_DIGITAL"
 popd
 pwd
 #git clone http://git.cautivatech.com/gomix/cas_master_vecino_digital.git
-git clone $GIT_URL$VECINO_DIGIAL_GIT_REPO
+git clone $GIT_URL$VECINO_DIGITAL_GIT_REPO
 echo "LISTANDO `pwd` : `ls`"
 #pushd cas_master_vecino_digital/Vecino_Digital
 pushd $VECINO_DIGITAL_DIR_NAME/$VECINO_DIGITAL_PROJECT_NAME
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 #mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
-mv $TARGET$VECINO_DIGITAL$SUFIX_WAR_VERSION $DEPLOY_DIR/ROOT.war
+mv $TARGET$VECINO_DIGITAL_PROJECT_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/ROOT.war
 popd
 ls
 echo "Terminando con Vecino Digital"
@@ -84,7 +84,7 @@ ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 #mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
 #mv target/LocationServer-0.0.1-SNAPSHOT.war $DEPLOY_DIR/LocationServer.war
-mv $TARGET$LOCATION_SERVER$SUFIX_WAR_VERSION $DEPLOY_DIR/$LOCATION_SERVER_PROJECT_NAME.war
+mv $TARGET$LOCATION_SERVER_PROJECT_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/$LOCATION_SERVER_PROJECT_NAME.war
 popd
 ls
 
@@ -112,14 +112,15 @@ echo "INICIANDO CON Services Transaccion Mall"
 
 pwd
 #git clone http://git.cautivatech.com/gomix/cas_services_transaccion_mall.git
-git clone $URL$SERVICE_TRANSACCIONMALL_GIT_REPO #cas_services_transaccion_mall.git
+git clone $GIT_URL$SERVICE_TRANSACCION_MALL_GIT_REPO 
+#cas_services_transaccion_mall.git
 echo "LISTANDO `pwd` : `ls`"
 #pushd cas_services_json/ServicesJSON
-pushd cas_services_json/ServicesJSON
+pushd $SERVICES_TRANSACCION_MALL_DIR_NAME/$SERVICES_TRANSACCION_MALL_PROJECT_NAME
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 #mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
-mv $TARGET$SERVICES_TRANSACCION_MALL_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/$SRVICES_TRANSACCION_MALL_NAME.war
+mv $TARGET$SERVICES_TRANSACCION_MALL_PROJECT_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/$SERVICES_TRANSACCION_MALL_PROJECT_NAME.war
 popd
 ls
 
