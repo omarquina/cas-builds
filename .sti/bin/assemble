@@ -29,7 +29,7 @@ SERVICES_JSON_PROJECT_NAME=ServicesJSON
 
 SERVICES_TRANSACCION_MALL_DIR_NAME=cas_services_transaccion_mall
 SERVICES_TRANSACCION_MALL_GIT_REPO=$SERVICES_TRANSACCION_MALL_DIR_NAME.git
-SERVICES_TRANSACCION_MALL_PROJECT_NAME=Service_TransactionMall
+SERVICES_TRANSACCION_MALL_PROJECT_NAME=Services_TransaccionMall
 
 
 echo "Listando Directorio actual: `pwd`"
@@ -112,7 +112,7 @@ echo "INICIANDO CON Services Transaccion Mall"
 
 pwd
 #git clone http://git.cautivatech.com/gomix/cas_services_transaccion_mall.git
-git clone $GIT_URL$SERVICE_TRANSACCION_MALL_GIT_REPO 
+git clone $GIT_URL$SERVICES_TRANSACCION_MALL_GIT_REPO 
 #cas_services_transaccion_mall.git
 echo "LISTANDO `pwd` : `ls`"
 #pushd cas_services_json/ServicesJSON
