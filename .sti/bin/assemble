@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 
 # Archivo que sobreescribiría el assemble del imagebuilder para s2i
 # es una opción para poder compilar todos el código fuente de todos los proyectos CAS, 
@@ -7,36 +7,65 @@ echo "Iniciando Custom assemble"
 
 echo "CATALINA: ${CATALINA_HOME}"
 DEPLOY_DIR=$CATALINA_HOME/webapps
+GIT_URL=http://git.cautivatech.com/gomix/
+SUFIX_WAR_VERSION=-0.0.1-SNAPSHOT.war
+TARGET_DIR=target/
+
+CONSUMES_JSON_DIR_NAME=cas_consumes_json
+CONSUMES_JSON_GIT_REPO=$CONSUMES_JSON_DIR_NAME.git
+CONSUMES_JSON_PROJECT_NAME=ConsumesJSON
+
+VECINO_DIGITAL_DIR_NAME=Vecino_Digital
+VECINO_DIGITAL_GIT_REPO=$VECINO_DIGITAL_DIR_NAME.git
+VECINO_DIGITAL_PROJECT_NAME=Vecino_Digital
+
+LOCATION_SERVER_DIR_NAME=cas_location_server
+LOCATION_SERVER_GIT_REPO=$LOCATION_SERVER_DIR_NAME.git
+LOCATION_SERVER_PROJECT_NAME=LocationServer
+
+SERVICES_JSON_DIR_NAME=cas_services_json
+SERVICES_JSON_GIT_REPO=$SERVICE_JSON_DIR_NAME.git
+SERVICES_JSON_PROJECT_NAME=ServicesJSON
+
+SERVICES_TRANSACCION_MALL_DIR_NAME=cas_services_transaccion_mall
+SERVICES_TRANSACCION_MALL_GIT_REPO=$SERVICES_TRANSACCION_MALL_DIR_NAME.git
+SERVICES_TRANSACCION_MALL_PROJECT_NAME=Service_TransactionMall
+
 
 echo "Listando Directorio actual: `pwd`"
 echo "`ls`"
 echo "Voy a clonar cas_consumes_json"
-git clone http://git.cautivatech.com/gomix/cas_consumes_json.git
+#git clone http://git.cautivatech.com/gomix/cas_consumes_json.git
+git clone $GIT_REPO$CONSUMES_JSON_GIT_REPO
 #echo "Listando luego de clonar `ls .`"
 echo "--"
 ls *
 # clean webapps
 rm -rf $DEPLOY_DIR/*
 pushd . &> /dev/null
-pushd cas_consumes_json/ConsumesJSON
+#pushd cas_consumes_json/ConsumesJSON
+pushd $CONSUMES_JSON_DIR_NAME/$CONSUMES_JSON_PROJECT_NAME
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
-mv target/ConsumesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ConsumesJSON.war
+#mv target/ConsumesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ConsumesJSON.war
+mv $TARGET$CONSUMES_JSON_PROJECT_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/CONSUMES_JSON_PROJECT_NAME.war
 echo "LISTANDO DEPLOY_DIR"
-ls $DEPLOY_DIR/
+#ls $DEPLOY_DIR/
 echo "--------"
 
 echo "CLONANDO VECINO_DIGITAL"
 
 popd
 pwd
-git clone http://git.cautivatech.com/gomix/cas_master_vecino_digital.git
+#git clone http://git.cautivatech.com/gomix/cas_master_vecino_digital.git
+git clone $GIT_REPO$VECINO_DIGIAL_GIT_REPO
 echo "LISTANDO `pwd` : `ls`"
-pushd cas_master_vecino_digital/Vecino_Digital
+#pushd cas_master_vecino_digital/Vecino_Digital
+pushd $VECINO_DIGITAL_DIR_NAME/$VECINO_DIGITAL_PROJECT_NAME
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 #mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
-mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ROOT.war
+mv $TARGET$VECINO_DIGITAL$SUFIX_WAR_VERSION $DEPLOY_DIR/ROOT.war
 popd
 ls
 echo "Terminando con Vecino Digital"
@@ -46,13 +75,16 @@ echo "---------------------------------------------------"
 echo "INICIANDO CON LocationServer"
 
 pwd
-git clone http://git.cautivatech.com/gomix/cas_location_server.git
+#git clone http://git.cautivatech.com/gomix/cas_location_server.git
+git clone $GIT_REPO$LOCATION_SERVER_GIT_REPO 
 echo "LISTANDO `pwd` : `ls`"
-pushd cas_location_server/LocationServer
+#pushd cas_location_server/LocationServer
+pushd $LOCATION_SERVER_DIR_NAME/$LOCATION_SERVER_PROJECT_NAME
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 #mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
-mv target/LocationServer-0.0.1-SNAPSHOT.war $DEPLOY_DIR/LocationServer.war
+#mv target/LocationServer-0.0.1-SNAPSHOT.war $DEPLOY_DIR/LocationServer.war
+mv $TARGET$LOCATION_SERVER$SUFIX_WAR_VERSION $DEPLOY_DIR/$LOCATION_SERVER_PROJECT_NAME.war
 popd
 ls
 
@@ -61,18 +93,35 @@ echo "---------------------------------------------------"
 echo "INICIANDO CON ServicesJSON"
 
 pwd
-git clone http://git.cautivatech.com/gomix/cas_services_json.git
+#git clone http://git.cautivatech.com/gomix/cas_services_json.git
+git clone $GIT_REPO$SERVICES_JSON_GIT_REPO
 echo "LISTANDO `pwd` : `ls`"
+#pushd cas_services_json/ServicesJSON
+pushd $SERVICES_JSON_DIR_NAME/$SERVICES_JSON_PROJECT_NAME
+ls
+mvn package -DskipTests -s $HOME/.m2/settings.xml
+#mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
+#mv target/ServicesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ServicesJSON.war
+mv $TARGET$SERVICES_JSON_PROJECT_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/$SERVICES_JSON_PROJECT_NAME.war
+popd
+ls
+
+echo "---------------------------------------------------"
+echo "---------------------------------------------------"
+echo "INICIANDO CON Services Transaccion Mall"
+
+pwd
+#git clone http://git.cautivatech.com/gomix/cas_services_transaccion_mall.git
+git clone $URL$SERVICE_TRANSACCIONMALL_GIT_REPO #cas_services_transaccion_mall.git
+echo "LISTANDO `pwd` : `ls`"
+#pushd cas_services_json/ServicesJSON
 pushd cas_services_json/ServicesJSON
 ls
 mvn package -DskipTests -s $HOME/.m2/settings.xml
 #mv target/Vecino_Digital-0.0.1-SNAPSHOT.war $DEPLOY_DIR/Vecino_Digital.war
-mv target/ServicesJSON-0.0.1-SNAPSHOT.war $DEPLOY_DIR/ServicesJSON.war
+mv $TARGET$SERVICES_TRANSACCION_MALL_NAME$SUFIX_WAR_VERSION $DEPLOY_DIR/$SRVICES_TRANSACCION_MALL_NAME.war
 popd
 ls
-
-
-
 
 echo "---------------------------------------------------"
 echo "Listando todos los war a webapps"
