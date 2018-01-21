@@ -15,7 +15,7 @@ CONSUMES_JSON_DIR_NAME=cas_consumes_json
 CONSUMES_JSON_GIT_REPO=$CONSUMES_JSON_DIR_NAME.git
 CONSUMES_JSON_PROJECT_NAME=ConsumesJSON
 
-VECINO_DIGITAL_DIR_NAME=Vecino_Digital
+VECINO_DIGITAL_DIR_NAME=cas_master_vecino_digital
 VECINO_DIGITAL_GIT_REPO=$VECINO_DIGITAL_DIR_NAME.git
 VECINO_DIGITAL_PROJECT_NAME=Vecino_Digital
 
@@ -36,7 +36,7 @@ echo "Listando Directorio actual: `pwd`"
 echo "`ls`"
 echo "Voy a clonar cas_consumes_json"
 #git clone http://git.cautivatech.com/gomix/cas_consumes_json.git
-git clone $GIT_REPO$CONSUMES_JSON_GIT_REPO
+git clone $GIT_URL$CONSUMES_JSON_GIT_REPO
 #echo "Listando luego de clonar `ls .`"
 echo "--"
 ls *
@@ -58,7 +58,7 @@ echo "CLONANDO VECINO_DIGITAL"
 popd
 pwd
 #git clone http://git.cautivatech.com/gomix/cas_master_vecino_digital.git
-git clone $GIT_REPO$VECINO_DIGIAL_GIT_REPO
+git clone $GIT_URL$VECINO_DIGIAL_GIT_REPO
 echo "LISTANDO `pwd` : `ls`"
 #pushd cas_master_vecino_digital/Vecino_Digital
 pushd $VECINO_DIGITAL_DIR_NAME/$VECINO_DIGITAL_PROJECT_NAME
@@ -76,7 +76,7 @@ echo "INICIANDO CON LocationServer"
 
 pwd
 #git clone http://git.cautivatech.com/gomix/cas_location_server.git
-git clone $GIT_REPO$LOCATION_SERVER_GIT_REPO 
+git clone $GIT_URL$LOCATION_SERVER_GIT_REPO 
 echo "LISTANDO `pwd` : `ls`"
 #pushd cas_location_server/LocationServer
 pushd $LOCATION_SERVER_DIR_NAME/$LOCATION_SERVER_PROJECT_NAME
@@ -94,7 +94,7 @@ echo "INICIANDO CON ServicesJSON"
 
 pwd
 #git clone http://git.cautivatech.com/gomix/cas_services_json.git
-git clone $GIT_REPO$SERVICES_JSON_GIT_REPO
+git clone $GIT_URL$SERVICES_JSON_GIT_REPO
 echo "LISTANDO `pwd` : `ls`"
 #pushd cas_services_json/ServicesJSON
 pushd $SERVICES_JSON_DIR_NAME/$SERVICES_JSON_PROJECT_NAME
